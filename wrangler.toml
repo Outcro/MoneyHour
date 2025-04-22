@@ -1,0 +1,9 @@
+# wrangler.toml
+name               = "calculator"
+main               = "generate_money_hour.js"  # your entrypoint
+compatibility_date = "2025-04-21"
+
+[build]
+# if you need to run npm install / a bundler, add:
+# command = "npm install && npm run build"
+upload.format = "modules"
