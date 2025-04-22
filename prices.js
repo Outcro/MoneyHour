@@ -855,5 +855,11 @@ export async function main() {
     localStorage.setItem("prices", JSON.stringify(combinedData));
 }
 
+
+export async function fetchCofl()   { return fetch(coflAPI).then(r=>r.json()) }
+export async function fetchNeu()    { return fetch(neuAPI).then(r=>r.json()) }
+export async function fetchBazaar() { return fetch(bazaarAPI).then(r=>r.json()) }
+export function combineData(a,b,c) { /* your existing logic */ }
+
 //Running the code.
 main();
