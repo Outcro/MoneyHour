@@ -1,6 +1,18 @@
-name               = "calculator"
-main               = "./generate_money_hour.js"
-compatibility_date = "2025-04-21"
+name               = "skyblock-prices"
+account_id         = "bd311b404640432a56a301071a281ce6"
+compatibility_date = "2025-04-23"
+workers_dev        = false
 
-[build]
-upload.format = "modules"
+main = "worker.js"
+
+
+routes = [
+  { pattern = "outcrocalculator.com/api/prices", zone_id = "bf7a376b8ff24e7e907ada0c11447abb" }
+]
+
+[[kv_namespaces]]
+binding = "PRICES_KV"
+id      = "069d4527fdde4209b979132109faf536"
+
+[triggers]
+crons = ["*/1 * * * *"]
