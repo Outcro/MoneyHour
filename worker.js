@@ -44,13 +44,7 @@ function filters(auction) {
     }
   }
 
-  // C) Runes from cofl – simple name → underscore → uppercase
-  if (bin && name.toUpperCase().includes("RUNE")) {
-    result.filterID = name
-      .replace(/\s+/g, "_")
-      .toUpperCase();
-    return result;
-  }
+
 
   // rest of your filters...
   return null;
