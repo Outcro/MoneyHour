@@ -15,4 +15,4 @@ binding = "PRICES_KV"
 id      = "069d4527fdde4209b979132109faf536"
 
 [triggers]
-crons = ["*/1 * * * *"]
+crons = ["*/5 * * * *"]
