@@ -1,20 +1,18 @@
-name              = "skyblock-prices"
-type              = "javascript"
-account_id        = "bd311b04640432a56a301071a281ce6"
+name               = "skyblock-prices"
+account_id         = "bd311b404640432a56a301071a281ce6"
 compatibility_date = "2025-04-23"
-
-# ◀ disable the workers.dev-only deployment
-workers_dev = false
-
-# ◀ deploy to this exact path (and anything under it)
-route    = "outcrocalculator.com/api/prices*"
-zone_id  = "bf7a376b8ff24e7e907ada0c11447abb"
+workers_dev        = true
 
 main = "worker.js"
 
+
+routes = [
+  { pattern = "outcrocalculator.com/api/prices", zone_id = "bf7a376b8ff24e7e907ada0c11447abb" }
+]
+
 [[kv_namespaces]]
 binding = "PRICES_KV"
-id      = "069d4527fdde420b979132109faf536"
+id      = "069d4527fdde4209b979132109faf536"
 
 [triggers]
 crons = ["*/5 * * * *"]
