@@ -107,7 +107,17 @@ function filters(auction) {
     "Water Hydra Head":   "WATER_HYDRA_HEAD",
     "Tarantula Talisman": "TARANTULA_TALISMAN",
     "Fire Freeze Staff":  "FIRE_FREEZE_STAFF",
-    "Chumming Talisman":  "CHUMMING_TALISMAN"
+    "Chumming Talisman":  "CHUMMING_TALISMAN",
+    "Fish Affinity Talisman":  "FISH_AFFINITY_TALISMAN",
+    "Glowing Mush Mixin": "MUSHED_MUSHROOM_MIXIN",
+    "Talbot's Theodolite": "TALBOTS_THEODOLITE",
+    "Travel Scroll to the Trapper's Den": "TRAPPER_DEN_TRAVEL_SCROLL",
+    "Pelt Belt": "PELT_BELT",
+    "Trapper Crest": "TRAPPER_CREST",
+    "Brown Bandana": "BROWN_BANDANA",
+    "Douce Pluie de Stinky Cheese I Potion": "POTION_stinky_cheese",
+    "Pest Vest": "PEST_VEST",
+    "Bluetooth Ring": "BLUETOOTH_RING"
   };
   for (const [kw, id] of Object.entries(SPECIFIC)) {
     if (name.includes(kw) && bin) {
@@ -347,14 +357,6 @@ export default {
 
       // seed `out` with COFL prices
       const out = {};
-      for (const [id, price] of Object.entries(coflShort)) {
-        out[id] = {
-          Price: price,
-          Extra: null,
-          UUID: null,
-          NPC_SELL_PRICE: itemMeta[id] || null
-        };
-      }
 
       // 4) Fetch Bazaar
       const bazR = await fetch(BAZAAR).then(r => r.json());
@@ -362,7 +364,7 @@ export default {
       // 5) Fetch up to 40 pages of auctions
       const firstPg   = await fetch(AUCTION + "0").then(r => r.json());
       const total     = firstPg.totalPages || 1;
-      const MAX_PAGES = 40;
+      const MAX_PAGES = 35;
       const pages     = [ firstPg ];
       for (let i = 1; i < total && i < MAX_PAGES; i++) {
         pages.push(await fetch(AUCTION + i).then(r => r.json()));
@@ -396,6 +398,17 @@ export default {
             Price: bp,
             Extra: null,
             UUID: null,
+            NPC_SELL_PRICE: itemMeta[id] || null
+          };
+        }
+      }
+
+      for (const [id, price] of Object.entries(coflShort)) {
+        if (!out[id]) {
+          out[id] = {
+            Price:      price,
+            Extra:      null,
+            UUID:       null,
             NPC_SELL_PRICE: itemMeta[id] || null
           };
         }
