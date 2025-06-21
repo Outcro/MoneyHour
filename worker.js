@@ -117,7 +117,8 @@ function filters(auction) {
     "Brown Bandana": "BROWN_BANDANA",
     "Douce Pluie de Stinky Cheese I Potion": "POTION_stinky_cheese",
     "Pest Vest": "PEST_VEST",
-    "Bluetooth Ring": "BLUETOOTH_RING"
+    "Bluetooth Ring": "BLUETOOTH_RING",
+    "Vanquished Blaze Belt": "VANQUISHED_BLAZE_BELT"
   };
   for (const [kw, id] of Object.entries(SPECIFIC)) {
     if (name.includes(kw) && bin) {
